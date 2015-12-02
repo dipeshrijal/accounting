@@ -27,10 +27,24 @@
                 </a>
                 <ul>
                     <li>
-                        <a class="{{setActive($route = 'admin.expenditures.create')}}" href="{{route($route)}}">Add Expenditures</a>
+                        <a class="{{setActive($route = 'admin.expenditures.create')}}" href="{{route($route)}}">Add Expenditure</a>
                     </li>
                     <li>
-                        <a class="{{setActive($route = 'admin.expenditures.index')}}" href="{{route($route)}}">View Expenditures</a>
+                        <a class="{{setActive($route = 'admin.expenditures.index')}}" href="{{route($route)}}">View Expenditure</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="submenu {{Request::is('admin/categories*')? 'open' : ''}}">
+                <a href=""> <i class="icon-table-2"></i>
+                Categories
+                </a>
+                <ul>
+                    <li>
+                        <a class="{{setActive($route = 'admin.categories.create')}}" href="{{route($route)}}">Add Category</a>
+                    </li>
+                    <li>
+                        <a class="{{setActive($route = 'admin.categories.index')}}" href="{{route($route)}}">View Category</a>
                     </li>
                 </ul>
             </li>

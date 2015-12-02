@@ -27,6 +27,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function ()
 
    	resource('expenditures', 'ExpendituresController');
 
+    resource('categories', 'CategoriesController');
+
    	get('dashboard', function(){
    		return view('admin.dashboard.index');
 

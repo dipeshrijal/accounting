@@ -7,9 +7,15 @@
     <section id="content" class="container">
         <header class="p-header">
             <h2 class="p-title">View Expenditures</h2>
-            <h2 class="p-title pull-right">Total Income:: {{ $totalIncome }}</h2><br>
-            <h2 class="p-title pull-right">Total Expenditures:: {{ $totalExpenditure }}</h2><br>
-            <h2 class="p-title pull-right">Remaining Balance:: {{ $remainingBalance }}</h2>
+            <div style="width:100%" class="pull-right">
+                <h3 class="p-title">Total Income:: {{ $totalIncome }}</h3>
+            </div>
+            <div style="width:100%" class="pull-right">
+                <h3 class="p-title">Total Expenditures:: {{ $totalExpenditure }}</h3>
+            </div>
+            <div style="width:100%" class="pull-right">
+                <h3 class="p-title">Remaining Balance:: {{ $remainingBalance }}</h3>
+            </div>         
         </header>
         <div class="table-responsive">
             <table class="table table-bordered table-striped" id="example">

@@ -4,6 +4,12 @@
     {!! $errors->first('income_source', '<p class="text-danger">:message</p>') !!}
 </div>
 
+{{-- <div class="form-group   {{ $errors->has('income_source') ? 'has-error' :  ''}}">
+    <label>Income Source*</label>
+    {!! Form::select('income_source', $categories, null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Source']) !!}
+    {!! $errors->first('income_source', '<p class="text-danger">:message</p>') !!}
+</div> --}}
+
 <div class="form-group   {{ $errors->has('income_amount') ? 'has-error' :  ''}}">
     <label>Income Amount*</label>
     {!! Form::text('income_amount', null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Amount']) !!}

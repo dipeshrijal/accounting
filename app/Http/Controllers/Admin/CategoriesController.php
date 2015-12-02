@@ -6,23 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Income;
 use App\Models\Category;
 
-class IncomesController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index(Income $income)
+    public function index()
     {
-        $incomes = $income->all();
+        $categories = Category::all();
 
-        $totalIncome = $income->getTotalIncome();        
-
-        return view('admin.incomes.index', compact('incomes', 'totalIncome'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -30,11 +27,9 @@ class IncomesController extends Controller
      *
      * @return Response
      */
-    public function create(Category $category)
+    public function create()
     {
-        $categories = $category->lists('category_name', 'id');
-
-        return view('admin.incomes.create', compact('categories'));
+        return view('admin.categories.create');
     }
 
     /**
@@ -45,9 +40,9 @@ class IncomesController extends Controller
      */
     public function store(Request $request)
     {
-        Income::create($request->all());
+        Category::create($request->all());
 
-        return redirect()->route('admin.incomes.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -69,9 +64,9 @@ class IncomesController extends Controller
      */
     public function edit($id)
     {
-        $income = Income::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('admin.incomes.edit', compact('income'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -83,9 +78,9 @@ class IncomesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Income::find($id)->update($request->all());
+        Category::find($id)->update($request->all());
 
-        return redirect()->route('admin.incomes.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
