@@ -6,7 +6,10 @@
     <!-- Content -->
     <section id="content" class="container">
         <header class="p-header">
-            <h2 class="p-title">View Income</h2>
+            <h2 class="p-title">View Expenditures</h2>
+            <h2 class="p-title pull-right">Total Income:: {{ $totalIncome }}</h2><br>
+            <h2 class="p-title pull-right">Total Expenditures:: {{ $totalExpenditure }}</h2><br>
+            <h2 class="p-title pull-right">Remaining Balance:: {{ $remainingBalance }}</h2>
         </header>
         <div class="table-responsive">
             <table class="table table-bordered table-striped" id="example">

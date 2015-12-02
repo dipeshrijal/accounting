@@ -7,19 +7,31 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Expenditure;
+use App\Models\Income;
 
 class ExpendituresController extends Controller
 {
+    // private $income;
+
+    // function __construct(Income $income) {
+    //     $this->income = $income;
+    // }
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
+    public function index(Expenditure $expenditure, Income $income)
     {
-        $expenditures = Expenditure::all();
+        $expenditures = $expenditure->all();
 
-        return view('admin.expenditures.index', compact('expenditures'));
+        $totalExpenditure = $expenditure->getTotalExpenditure();
+
+        $totalIncome = $income->getTotalIncome();
+
+        $remainingBalance = $totalIncome - $totalExpenditure;
+
+        return view('admin.expenditures.index', compact('expenditures', 'totalExpenditure', 'remainingBalance', 'totalIncome'));
     }
 
     /**

@@ -15,16 +15,11 @@ class IncomesController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Income $income)
     {
-        $incomes = Income::all();
+        $incomes = $income->all();
 
-        $totalIncome = 0;
-
-        foreach ($incomes as $income) 
-        {
-            $totalIncome = $totalIncome + $income->income_amount;            
-        }
+        $totalIncome = $income->getTotalIncome();        
 
         return view('admin.incomes.index', compact('incomes', 'totalIncome'));
     }
