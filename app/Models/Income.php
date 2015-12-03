@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Income extends Model
 {
-    protected $fillable = ['income_source', 'income_amount', 'income_description'];
+    protected $fillable = ['income_amount', 'income_description'];
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 
     public function getTotalIncome()
     {
@@ -21,4 +26,6 @@ class Income extends Model
 
         return $totalIncome;
     }
+
+
 }

@@ -14,6 +14,8 @@ class CreateExpendituresTable extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('expenditure_source');
             $table->float('expenditure_amount');
             $table->text('expenditure_description');

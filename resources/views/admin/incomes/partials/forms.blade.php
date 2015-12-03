@@ -1,21 +1,14 @@
-<div class="form-group   {{ $errors->has('income_source') ? 'has-error' :  ''}}">
+<div class="form-group   {{ $errors->has('category_id') ? 'has-error' :  ''}}">
     <label>Income Source*</label>
-    {!! Form::text('income_source', null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Source']) !!}
-    {!! $errors->first('income_source', '<p class="text-danger">:message</p>') !!}
+    {!! Form::select('category_id', ['' => 'Please Select'] + $categories, null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Source']) !!}
+    {!! $errors->first('category_id', '<p class="text-danger">:message</p>') !!}
 </div>
-
-{{-- <div class="form-group   {{ $errors->has('income_source') ? 'has-error' :  ''}}">
-    <label>Income Source*</label>
-    {!! Form::select('income_source', $categories, null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Source']) !!}
-    {!! $errors->first('income_source', '<p class="text-danger">:message</p>') !!}
-</div> --}}
 
 <div class="form-group   {{ $errors->has('income_amount') ? 'has-error' :  ''}}">
     <label>Income Amount*</label>
     {!! Form::text('income_amount', null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Amount']) !!}
     {!! $errors->first('income_amount', '<p class="text-danger">:message</p>') !!}
 </div>
-
 
 <div class="form-group">
     <label>Income Description*</label>

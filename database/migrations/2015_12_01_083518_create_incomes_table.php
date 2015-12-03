@@ -14,7 +14,8 @@ class CreateIncomesTable extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('income_source');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->float('income_amount');
             $table->text('income_description');
             $table->timestamps();

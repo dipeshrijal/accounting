@@ -23,7 +23,7 @@
                 <tbody>
                     @foreach ($incomes as $income)
                         <tr>
-                        <td>{{ e($income->income_source) }}</td>
+                        <td>{{ e($income->category->category_name) }}</td>
                         <td>{{ e($income->income_amount) }}</td>
                         <td>{{ e($income->income_description) }}</td>
                         <td>{!! link_to_route('admin.incomes.edit', 'Edit', $income->id) !!}</td>
