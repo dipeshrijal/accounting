@@ -11,5 +11,10 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\Income');
     }
+
+    public function expenditure() 
+    {
+        return $this->hasMany('App\Models\Expenditure');
+    }
 }
 

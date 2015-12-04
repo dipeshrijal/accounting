@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach ($expenditures as $expenditure)
                         <tr>
-                            <td>{{ e($expenditure->expenditure_source) }}</td>
+                            <td>{{ e($expenditure->category->category_name) }}</td>
                             <td>{{ e($expenditure->expenditure_amount) }}</td>
                             <td>{{ e($expenditure->expenditure_description) }}</td>
                             <td>{!! link_to_route('admin.expenditures.edit', 'Edit', $expenditure->id) !!}</td>

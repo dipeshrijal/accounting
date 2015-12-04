@@ -1,7 +1,7 @@
-<div class="form-group   {{ $errors->has('expenditure_source') ? 'has-error' :  ''}}">
+<div class="form-group   {{ $errors->has('category_id') ? 'has-error' :  ''}}">
     <label>Expenditure Source*</label>
-    {!! Form::text('expenditure_source', null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Expenditure Source']) !!}
-    {!! $errors->first('expenditure_source', '<p class="text-danger">:message</p>') !!}
+    {!! Form::select('category_id', ['' => 'Please Select'] + $categories, null, ['class' => 'input-sm validate[required] form-control', 'placeholder' => 'Enter Income Source']) !!}
+    {!! $errors->first('category_id', '<p class="text-danger">:message</p>') !!}
 </div>
 
 <div class="form-group   {{ $errors->has('expenditure_amount') ? 'has-error' :  ''}}">

@@ -8,6 +8,11 @@ class Expenditure extends Model
 {
     protected $fillable = ['expenditure_source', 'expenditure_amount', 'expenditure_description'];
 
+    public function Category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
     public function getTotalExpenditure()
     {
     	$expenditures = Expenditure::all();

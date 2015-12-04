@@ -68,10 +68,7 @@ class IncomesController extends Controller
      */
     public function show($id) 
     {
-        
         //
-        
-        
     }
     
     /**
@@ -98,7 +95,15 @@ class IncomesController extends Controller
      */
     public function update(Request $request, $id) 
     {
-        $this->income->find($id)->update($request->all());
+        $income = $this->income->find($id);
+
+        $income->update($request->all());
+
+        $category = $this->category->find($request->category_id);
+
+        $income->category()->associate($category);
+
+        $income->save();
         
         return redirect()->route('admin.incomes.index');
     }
@@ -111,9 +116,6 @@ class IncomesController extends Controller
      */
     public function destroy($id) 
     {
-        
         //
-        
-        
     }
 }
